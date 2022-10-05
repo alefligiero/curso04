@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    app: redis
   name: redis
   namespace: vote
-  labels: 
-    app: redis
 spec:
-  replicas: 1 
+  replicas: 1
   selector:
     matchLabels:
       app: redis
@@ -16,8 +16,8 @@ spec:
         app: redis
     spec:
       containers:
-      - name: redis
-        image: redis:alpine
+      - image: redis:alpine
+        name: redis
         ports:
         - containerPort: 6379
           name: redis
@@ -26,4 +26,4 @@ spec:
           name: redis-data
       volumes:
       - name: redis-data
-        emptyDir: {}
+        emptyDir: {} 

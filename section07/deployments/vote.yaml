@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vote
-  namespace: vote
   labels:
     app: vote
+  name: vote
+  namespace: vote
 spec:
   replicas: 1
   selector:
